@@ -18,14 +18,26 @@ public class CustomerCheck
      */
     public double totalPrices()
     {
-        /* to be implemented in part (a) */
+        double total = 0;
+        for (MenuItem item : check) {
+            total += item.getPrice();
+        }
+        return total;
     }
 
     /** Returns true if the restaurant’s coupon offer can be applied to this check and
      *  returns false otherwise, as described in part (b) */
     public boolean couponApplies()
     {
-        /* to be implemented in part (b) */
+        for (MenuItem item : check) {
+            if (item.getPrice() < 40.0) {
+                return false;
+            }
+            if (item.isDailySpecial() == false) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /** Calculates the final cost of this check, as described in part (c) */
