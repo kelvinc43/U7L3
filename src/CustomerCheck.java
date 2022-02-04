@@ -43,6 +43,16 @@ public class CustomerCheck
     /** Calculates the final cost of this check, as described in part (c) */
     public double calculateCheck()
     {
-        /* to be implemented in part (c) */
+        int people = 0;
+        for (MenuItem item : check) {
+            if (item.isEntree()) people++;
+        }
+        double price = this.totalPrices();
+        if (this.couponApplies()) {
+            price *= 0.75;
+        }
+        if (people >= 6) {
+
+        }
     }
 }
